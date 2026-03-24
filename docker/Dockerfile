@@ -20,7 +20,7 @@ COPY --from=builder /usr/local/bin/ /usr/local/bin/
 COPY --from=builder /usr/local /usr/local
 COPY --from=builder /usr/lib/x86_64-linux-gnu /usr/lib/x86_64-linux-gnu
 
-COPY --chown=nonroot:nonroot ./backend /app
+COPY --chown=nonroot:nonroot ./app /app
 
 WORKDIR /app
 ENTRYPOINT [ "gunicorn", "--bind", "0.0.0.0:8000", "divineapp.wsgi:application" ]
