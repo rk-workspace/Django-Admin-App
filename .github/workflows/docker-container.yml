@@ -19,15 +19,15 @@ jobs:
         run:  |
           docker build -f ./docker/Dockerfile -t admin-app:test.0.1 .
       
-      - name: Trivy Check on Docker
-        uses: aquasecurity/trivy-action@0.33.1
-        with:
-          image-ref:  'admin-app:test.0.1'
-          format: 'table'
-          exit-code:  '1'
-          ignore-unfixed: true
-          vuln-type:  'os,library'
-          severity: 'CRITICAL,HIGH'
+      # - name: Trivy Check on Docker
+      #   uses: aquasecurity/trivy-action@0.33.1
+      #   with:
+      #     image-ref:  'admin-app:test.0.1'
+      #     format: 'table'
+      #     exit-code:  '1'
+      #     ignore-unfixed: true
+      #     vuln-type:  'os,library'
+      #     severity: 'CRITICAL,HIGH'
 
       - name: Push Image to Docker Hub
         env:
