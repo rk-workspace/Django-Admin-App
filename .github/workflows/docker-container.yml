@@ -35,5 +35,5 @@ jobs:
         run:  |
           docker tag admin-app:test.0.1 dhiverse/admin-app:test.0.1
           echo $docker_pat | docker login --username dhiverse --password-stdin
-          push dhiverse/admin-app:test.0.1 
+          docker push dhiverse/admin-app:test.0.1 
 
