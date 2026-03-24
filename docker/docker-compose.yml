@@ -1,0 +1,45 @@
+#project-name
+name: django-admin-app
+
+services:
+  app:
+    depends_on:
+      - db
+    image: admin-app:test.0.1
+    volumes:
+      - "static-files:/app/static"
+    networks:
+      - my-app
+
+  db:
+    image: mysql:9.6
+    environment:
+      MYSQL_USER: django-admin
+      MYSQL_PASSWORD: django
+      MYSQL_DATABASE: divine_goods
+      MYSQL_ROOT_PASSWORD: rootpass
+    ports:
+      - "3306:3306"
+    volumes:
+      - "db-data:/var/lib/mysql"
+    networks:
+      - my-app
+
+  web-server:
+    depends_on:
+      - app
+    image: dhi.io/nginx:1
+    volumes:
+      - "static-files:/var/www/nginx"
+      - "./app.conf:/etc/nginx/conf.d/app.conf"
+    ports:
+      - "8001:80"
+    networks:
+      - my-app
+
+volumes:
+  db-data:
+  static-files:
+
+networks:
+  my-app:

@@ -1,0 +1,9 @@
+asgiref==3.2.10
+Django==3.0.8
+django-cors-headers==3.5.0
+djangorestframework==3.11.1
+gunicorn==25.1.0
+packaging==26.0
+pyotp==2.6.0
+pytz==2020.1
+sqlparse==0.3.1

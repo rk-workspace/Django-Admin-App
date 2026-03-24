@@ -1,0 +1,27 @@
+raw materials
+
+color name & grade			| grade primary key
+price					    | price float
+company name				| manufacturer
+supplier name				| supplier
+statutory compliances		| compliance
+notes					    | notes
+	
+
+finished goods
+
+item grade				    | grade			    | primary key
+customer name			    | customer
+category				    | category
+composition				    | composition		| id
+cost price			    	| price
+reference date			    | date
+notes				    	| notes
+
+composition
+
+composition id			    | id
+rm grade			    	| foreign key
+quantity			    	| quantity grams
+
+cost price = sum (rm price * quantity) / total qty 

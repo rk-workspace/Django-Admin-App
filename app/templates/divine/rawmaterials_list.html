@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <p>
+    <a href="{% url 'raw_materials_add' %}" class="btn btn-primary">Add Raw Material</a>
+  </p>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Material Grade</th>
+        <th>Price</th>
+        <th>Manufacturer Name</th>
+        <th>Supplier Name</th>
+        <th>Compliance</th>
+        <th>Notes</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for material in raw_materials %}
+        <tr>
+          <td><a href="{% url 'raw_materials_edit' material.pk %}">{{ material.rm_name }}</a></td>
+          <td>{{ material.price }}</td>
+          <td>{{ material.manufacturer }}</td>
+          <td>{{ material.supplier }}</td>
+          <td>{{ material.compliance }}</td>
+          <td>{{ material.notes }}</td>
+        </tr>
+      {% empty %}
+        <tr class="table-active">
+          <td colspan="3">No data</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}
