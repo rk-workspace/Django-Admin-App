@@ -3,8 +3,8 @@ name: CICD Talk Project
 on:
   push:
     paths:
-      - './docker'
-      - './app'
+      - docker/**
+      - app/**
 
 jobs:
 
