@@ -1,10 +1,9 @@
 name: CICD Talk Project
 
-on:
-  push:
-    paths:
-      - docker/**
-      - app/**
+on: [push]
+    # paths:
+    #   - docker/**
+    #   - app/**
 
 jobs:
 
